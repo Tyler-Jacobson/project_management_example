@@ -19,6 +19,7 @@ defmodule ProjectManagementExampleWeb.Router do
     pipe_through :api
 
     resources "/projects", ProjectController, only: [:index, :show]
+    resources "/documents", DocumentController, only: [:index, :show]
     # get "/projects/:id", ProjectController, :show
   end
 
