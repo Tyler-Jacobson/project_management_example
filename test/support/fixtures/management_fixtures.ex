@@ -32,4 +32,19 @@ defmodule ProjectManagementExample.ManagementFixtures do
 
     document
   end
+
+  @doc """
+  Generate a comment.
+  """
+  def comment_fixture(attrs \\ %{}) do
+    {:ok, comment} =
+      attrs
+      |> Enum.into(%{
+        author_name: "some author_name",
+        content: "some content"
+      })
+      |> ProjectManagementExample.Management.create_comment()
+
+    comment
+  end
 end
