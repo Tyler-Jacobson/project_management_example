@@ -19,6 +19,12 @@ defmodule ProjectManagementExampleWeb.Router do
     plug JaSerializer.Deserializer
   end
 
+  scope "/", ProjectManagementExampleWeb do
+    pipe_through :api
+    resources "/comments", CommentController, only: [:index, :show]
+    # get "/projects/:id", ProjectController, :show
+  end
+
   # Other scopes may use custom stacks.
   scope "/api", ProjectManagementExampleWeb do
     pipe_through :json_api
